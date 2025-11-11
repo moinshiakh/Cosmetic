@@ -1,0 +1,240 @@
+
+ 
+ body {
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      background-color: #1a2526;
+      padding: 30px 0;
+    }
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: aliceblue;
+    }
+    .nav-link {
+      color: aliceblue;
+      margin-right: 15px;
+    }
+   
+  /* About Us CSS */
+.abt{
+   font-family: Arial, sans-serif;
+      background-color: #1a2526;
+      color: white;
+     
+}
+  .about-section {
+      position: relative;
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      background-image: url('/Images/banner-white-42.jpg');
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+    .text-area {
+      max-width: 100%;
+    }
+    .text-area .intro {
+      font-size: 0.9rem;
+      color: #ccc;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .text-area h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    @media (max-width: 992px) {
+      .about-section {
+        height: 400px;
+      }
+      .text-area h1 {
+        font-size: 2.5rem;
+      }
+      .text-area .intro {
+        font-size: 0.8rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .about-section {
+        height: 300px;
+        text-align: center;
+        justify-content: center;
+      }
+      .text-area {
+        max-width: 100%;
+      }
+      .text-area h1 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Mission Section $ Vision Section */
+    .ms-section{
+      font-family: Arial, sans-serif;
+      background-color: #2a3428;
+      color: white;
+    }
+    .mission-section {
+      padding: 40px 0;
+       padding-top: 6.5rem !important;
+    padding-bottom: 6.5rem !important;
+    }
+    .text-area {
+      padding-right: 20px;
+    }
+    .text-area h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .text-area p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .image-area {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .image-area img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 992px) {
+      .text-area h2 {
+        font-size: 2rem;
+      }
+      .text-area p {
+        font-size: 0.9rem;
+      }
+      .image-area {
+        height: 300px;
+      }
+    }
+    @media (max-width: 768px) {
+      .text-area {
+        padding-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .text-area h2 {
+        font-size: 1.8rem;
+      }
+      .image-area {
+        height: 250px;
+      }
+    }
+ /* footer style */
+
+    footer {
+      padding: 40px 0;
+      background-color: #1a2526;
+    }
+    .ftr-section{
+      font-family: Arial, sans-serif;
+      background-color: #1a2526;
+      color: white;
+    }
+    .footer-section h5 {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.85rem;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 8px;
+      display: block;
+      line-height: 1.5;
+    }
+    .footer-section a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .footer-bottom .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .footer-bottom .logo small {
+      font-size: 0.7rem;
+      font-weight: normal;
+      display: block;
+      letter-spacing: 1px;
+    }
+    .social-icons,
+    .payment-icons {
+      margin: 10px 0;
+    }
+    .social-icons img,
+    .payment-icons img {
+      width: 20px;
+      margin: 0 8px;
+      filter: brightness(0) invert(1); /* Ensures icons are white */
+    }
+    .payment-icons img {
+      width: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.85rem;
+      color: #ccc;
+      margin-top: 10px;
+    }
+    @media (max-width: 992px) {
+      .footer-section {
+        margin-bottom: 30 Botpx;
+      }
+      .footer-section h5 {
+        font-size: 0.9rem;
+      }
+      .footer-section p,
+      .footer-section a,
+      .newsletter p {
+        font-size: 0.8rem;
+      }
+      .newsletter-input input,
+      .newsletter-input button {
+        font-size: 0.8rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .footer-section {
+        text-align: center;
+      }
+      .newsletter-input {
+        flex-direction: column;
+        align-items: center;
+      }
+      .newsletter-input input,
+      .newsletter-input button {
+        width: 100%;
+        max-width: 300px;
+      }
+      .footer-bottom .logo {
+        font-size: 1.3rem;
+      }
+      .footer-bottom .logo small {
+        font-size: 0.65rem;
+      }
+      .social-icons img,
+      .payment-icons img {
+        width: 18px;
+      }
+      .payment-icons img {
+        width: 25px;
+      }
+    }
