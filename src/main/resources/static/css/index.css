@@ -140,7 +140,7 @@
       border-radius: 10px;
       overflow: hidden;
       position: relative;
-      height: 550px;
+      height: 450px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -510,11 +510,11 @@
     }
 
     .promo-card-left {
-      background-image: url('promo-1.png');
+      background-image: url('/Images/promo-1.png');
     }
 
     .promo-card-right {
-      background-image: url('promo-2.png');
+      background-image: url('/Images/promo-2.png');
       color: #333;
     }
 
@@ -649,16 +649,16 @@
     }
 
     .card-1 {
-      background-image: url('discover-1.jpeg');
+      background-image: url('/Images/discover-1.jpeg');
 
     }
 
     .card-2 {
-      background-image: url('discover-2.png');
+      background-image: url('/Images/discover-2.png');
     }
 
     .card-3 {
-      background-image: url('discover-3.png');
+      background-image: url('/Images/discover-3.png');
     }
 
     .card-text {

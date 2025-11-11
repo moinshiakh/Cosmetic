@@ -48,13 +48,13 @@
       <!-- Left Section: Images -->
       <div class="col-md-6">
         <div class="text-center mb-3">
-          <img id="mainProductImage" th:src="@{/Images/SKU_01.png}" alt="Main Product" class="main-img">
+          <img id="mainProductImage" th:src="@{/Images/SKU_01_a.png}" alt="Main Product" class="main-img">
         </div>
 
         <div class="row row-cols-4 g-2 thumbs">
           <!-- <div class="col"><img th class="thumb-img active" alt="thumb1"></div> -->
-          <div class="col"><img th:src="@{/Images/SKU_01.png}" class="thumb-img active" alt="thumb1"></div>
-          <div class="col"><img th:src="@{/Images/product-10-330x440.jpg}" class="thumb-img" alt="thumb2"></div>
+          <div class="col"><img th:src="@{/Images/SKU_01_a.png}" class="thumb-img active" alt="thumb1"></div>
+          <div class="col"><img th:src="@{/Images/SKU_01_b.png}" class="thumb-img" alt="thumb2"></div>
           <div class="col"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=400&fit=crop"
               class="thumb-img" alt="thumb3"></div>
           <div class="col"><img src="https://via.placeholder.com/400x400/e67e22/ffffff?text=Shade+4" class="thumb-img"
@@ -81,12 +81,24 @@
         </div>
 
         <div class="input-group mb-3 w-50">
-          <button class="btn btn-outline-secondary" type="button">-</button>
-          <input type="text" class="form-control text-center" value="1">
-          <button class="btn btn-outline-secondary" type="button">+</button>
+          <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
+          <input type="text" class="form-control text-center" value="1" id="quantity">
+          <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
         </div>
 
-        <button class="add-to-cart-btn mb-3">Add to cart</button>
+        <button class="add-to-cart-btn mb-3" id="addToCart">Add to cart</button>
+
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+              <div class="modal-body">
+                <h5 class="mb-3">✅ Added to Cart!</h5>
+                <p><strong id="shadeName"></strong> — <span id="cartQty"></span> item(s)</p>
+                <button type="button" class="btn btn-dark mt-3" data-bs-dismiss="modal">Continue Shopping</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="details-section">
           <h4>Product details</h4>
@@ -102,9 +114,153 @@
     </div>
   </div>
 
+   <!-- Product carasoul  - ID has to change after the dynamic code becz this is copied from index.html page. -->
+  <div class="pdt">
+    <section class="container py-5">
+      <div class="text-start mb-4">
+        <h2 class="section-title">Buy the Collection</h2>
+        <p class="section-subtitle">Shop by Collection to find your perfect piece of jewellery!</p>
+      </div>
+
+      <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- First Slide -->
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-6 col-md-3 mb-4">
+                <div class="product-card">
+                  <a th:href="@{/product_sku01}" class="text-decoration-none text-dark">
+                    <div class="product-card">
+                      <img th:src="@{/Images/SKU_01.png}" alt="Enriched Duo" class="img-fluid">
+                      <div class="text-center p-2">
+                        <div class="price">$29.00</div>
+                        <div class="name">Lime Basil & Mandarin Body & Hand Lotion</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 mb-4">
+                <div class="product-card">
+                  <img src="/Images/product-02-330x440.jpg" alt="Shield Spray">
+                  <div class="text-center">
+                    <div class="price">$29.00</div>
+                    <div class="name">Shield Spray</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 mb-4">
+                <div class="product-card">
+                  <img src="/Images/product-05-330x440.jpg" alt="Shield Conditioner">
+                  <div class="discount-label">-25%</div>
+                  <div class="text-center">
+                    <div class="price">$30.00 <span class="old-price">$40.00</span></div>
+                    <div class="name">Shield Conditioner</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 mb-4">
+                <div class="product-card">
+                  <div class="new-label">New</div>
+                  <img src="/Images/product-06-330x440.jpg" alt="Perfecting Facial Oil">
+                  <div class="text-center">
+                    <div class="price">$20.00</div>
+                    <div class="name">Perfecting Facial Oil</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Second Slide (Duplicate for demo) -->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-6 col-md-3 mb-4">
+                <div class="product-card">
+                  <img src="/Images/product-01-330x440.jpg" alt="Enriched Duo">
+                  <div class="text-center">
+                    <div class="price">$29.00</div>
+                    <div class="name">Enriched Duo</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 mb-4">
+                <div class="product-card">
+                  <img src="/Images/product-02-330x440.jpg" alt="Shield Spray">
+                  <div class="text-center">
+                    <div class="price">$29.00</div>
+                    <div class="name">Shield Spray</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 mb-4">
+                <div class="product-card">
+                  <div class="discount-label">-25%</div>
+                  <img src="/Images/product-05-330x440.jpg" alt="Shield Conditioner">
+                  <div class="text-center">
+                    <div class="price">$30.00 <span class="old-price">$40.00</span></div>
+                    <div class="name">Shield Conditioner</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 mb-4">
+                <div class="product-card">
+                  <div class="new-label">New</div>
+                  <img src="/Images/product-06-330x440.jpg" alt="Perfecting Facial Oil">
+                  <div class="text-center">
+                    <div class="price">$20.00</div>
+                    <div class="name">Perfecting Facial Oil</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const mainImage = document.getElementById('mainProductImage');
     const thumbnails = document.querySelectorAll('.thumb-img');
+    const incrementBtn = document.getElementById('increment');
+    const decrementBtn = document.getElementById('decrement');
+    const quantityInput = document.getElementById('quantity');
+    const addToCartBtn = document.getElementById('addToCart');
+    const cartQty = document.getElementById('cartQty');
+    const shadeSelect = document.getElementById('shade');
+    const shadeName = document.getElementById('shadeName');
+
+    let quantity = 1;
+    incrementBtn.addEventListener('click', () => {
+      quantity++;
+      quantityInput.value = quantity;
+    });
+
+    decrementBtn.addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity--;
+        quantityInput.value = quantity;
+      }
+    });
+
+    addToCartBtn.addEventListener('click', () => {
+      cartQty.textContent = quantity;
+      shadeName.textContent = shadeSelect.value;
+      const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+      cartModal.show();
+    });
 
     thumbnails.forEach(thumb => {
       thumb.addEventListener('click', () => {
