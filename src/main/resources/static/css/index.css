@@ -23,6 +23,24 @@
       background-color: aliceblue;
     }
 
+
+    .dropdown-menu {
+      background-color: #1b2626;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .dropdown-item {
+      color: white;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f0d27a;
+      color: #000;
+    }    
+
     .hero-section {
       height: 100vh;
       position: relative;
@@ -343,6 +361,8 @@
       height: 100%;
       border-radius: 10px;
     }
+
+
 
     @media (max-width: 992px) {
       .carousel-section {
