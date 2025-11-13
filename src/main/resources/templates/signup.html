@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{base}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | MyWebsite</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+ <link th:href ="@{/css/index.css}" rel="stylesheet">
+ <style>
+    :root {
+      --primary-color: #0056b3;
+      --accent-color: #00bcd4;
+      --light-bg: #f8f9fa;
+      --dark-text: #212529;
+    }
+
+ 
+      /* Signup Section */
+    .signup-wrapper {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 140px);
+      overflow: hidden;
+    }
+
+    /* Left Side with Image */
+    .signup-image {
+      flex: 1;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .signup-image img {
+      width: 80%;
+      max-width: 400px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .signup-image h2 {
+      margin-top: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* Right Side with Form */
+    .signup-form {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      padding: 60px;
+      margin-top: 4%;
+      margin-bottom: 4%;
+    }
+
+    .form-box {
+      width: 100%;
+      max-width: 400px;
+      animation: fadeInUp 0.9s ease-in-out;
+    }
+
+    .form-box h3 {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+    }
+
+    .form-control {
+      border-radius: 30px;
+      padding: 10px 20px;
+    }
+
+    .btn-signup {
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      border: none;
+      color: white;
+      border-radius: 30px;
+      padding: 10px;
+      width: 100%;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .btn-signup:hover {
+      background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+    }
+
+    .login-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-link:hover {
+      text-decoration: underline;
+    }
+
+       /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .signup-wrapper {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .signup-image {
+        height: 40vh;
+        padding: 30px;
+      }
+
+      .signup-form {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">COSMETIC</a>
+      <button class="navbar-toggler clp" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="color: aliceblue;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/index}">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/about_cosmetic}">ABOUT</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">SHOP</a>
+             <select class="nav-link shop-select" onchange="location = this.value;">
+              <option value="" disabled selected>SHOP</option>
+              <option th:value="@{/product_bodycare}">BODYCARE</option>
+              <option th:value="@{/product_skincare}">SKINCARE</option>
+              <option th:value="@{/product_makeup}">MAKEUP</option>
+              <option th:value="@{/product_haircare}">HAIRCARE</option>
+          </li> -->
+
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              SHOP
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Skincare</a></li>
+              <li><a class="dropdown-item" href="#">Makeup</a></li>
+              <li><a class="dropdown-item" href="#">Fragrance</a></li>
+              <li><a class="dropdown-item" href="#">Body & Hair</a></li>
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">BLOG</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">DOCS</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Signup Section -->
+  <div class="signup-wrapper">
+    <!-- Left Side -->
+    <div class="signup-image">
+      <img th:src="@{/Images/register-logo.png}" alt="Signup Illustration">
+      <h2>Join Our Community!</h2>
+      <p>Sign up to access exclusive features and content.</p>
+    </div>
+
+    <!-- Right Side -->
+    <div class="signup-form">
+      <div class="form-box">
+        <h3>Create Account</h3>
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
+              <input type="text" class="form-control" placeholder="Enter your full name" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="bi bi-envelope"></i></span>
+              <input type="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="bi bi-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Create a password" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Confirm Password</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="bi bi-shield-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Re-enter your password" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-signup">Sign Up</button>
+
+          <p class="mt-1 text-center mb-0">
+            Already have an account?
+            <a th:href="@{/login}" class="login-link">Login</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+ <footer>
+    <div class="ftr-section">
+      <div class="container">
+        <div class="row">
+          <!-- Company -->
+          <div class="col-md-3 footer-bottom ">
+            <div class="logo">
+              COSMETIC
+              <small>BEAUTY STORE</small>
+            </div>
+            <div class="social-icons">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="Twitter">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="YouTube">
+            </div>
+          </div>
+          <div class="col-md-3 footer-section">
+            <h5>Company</h5>
+            <p>Find a location nearest.</p>
+            <p>+91 8097275865</p>
+            <p>moinshaikh19@gmail.com</p>
+          </div>
+          <!-- Useful Links -->
+          <div class="col-md-3 footer-section">
+            <h5>Useful Links</h5>
+            <a href="#">New Products</a>
+            <a href="#">Best Sellers</a>
+
+          </div>
+          <!-- Information -->
+          <div class="col-md-3 footer-section">
+            <h5>Information</h5>
+            <a href="#">Shipping FAQ</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+
+        </div>
+        <p style="text-align: center;">© COSMETIC 2025</p>
+        <!-- Footer Bottom -->
+        <!-- <div class="footer-bottom">
+        <div class="logo">
+          GLOWING
+          <small>BEAUTY STORE</small>
+        </div>
+        <div class="social-icons">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="Twitter">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="YouTube">
+        </div>
+        <div class="payment-icons">
+          <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="Paypal">
+          <img src="https://img.icons8.com/color/48/000000/apple-pay.png" alt="Apple Pay">
+          <img src="https://img.icons8.com/color/48/000000/google-pay.png" alt="Google Pay">
+          <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard">
+          <img src="https://img.icons8.com/color/48/000000/discover.png" alt="Discover">
+          <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+          <img src="https://img.icons8.com/color/48/000000/american-express.png" alt="Amex">
+        </div>
+        <p>© Glowing 2023</p>
+      </div> -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

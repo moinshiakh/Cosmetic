@@ -20,4 +20,14 @@ public class mainPage {
     public String productSku01(){   
         return "product_sku01"; // templates/product_sku01.html
     }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @GetMapping("/signup")
+    public String signup(){
+        return "signup";
+    }
 }
