@@ -11,36 +11,7 @@
 </head>
 <body>
       <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg ">
-    <div class="container">
-      <a class="navbar-brand" href="cosmetic.html">COSMETIC</a>
-      <button class="navbar-toggler clp" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="color: aliceblue;"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/index}">HOME</a>
-          </li>
-         
-          <li class="nav-item">
-            <!-- <a class="nav-link" href="about_cosmetic.html" active>ABOUT</a> -->
-             <a class="nav-link" th:href="@{/about_cosmetic}" active>ABOUT</a>
-          </li>
-
-           <li class="nav-item">
-            <a class="nav-link" href="#">SHOP</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">BLOG</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">DOCS</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <main layout:fragment="content">
 
   <!-- Hero Banner -->
     <section class="about-section abt">
@@ -89,6 +60,7 @@
     </div>
   </section>
 
+  </main> 
    <!-- Footer Section -->
   <footer>
     <div class="ftr-section">
